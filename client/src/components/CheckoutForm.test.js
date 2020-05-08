@@ -25,29 +25,32 @@ test("form header renders", () => {
 
 test("form shows success message on submit with form details", () => {
     const { getByLabelText, getByTestId } = render(<CheckoutForm />)
-    const firstNameInput = getByLabelText(/first name/i)
-    const lastNameInput = getByLabelText(/last name/i)
-    const addressInput = getByLabelText(/address/i)
-    const cityInput = getByLabelText(/city/i)
-    const stateInput = getByLabelText(/state/i)
-    const zipInput = getByLabelText(/zip/i)
-    const checkoutButton = getByTestId(/checkout/i)
+    // const firstNameInput = getByLabelText(/first name/i)
+    // const lastNameInput = getByLabelText(/last name/i)
+    // const addressInput = getByLabelText(/address/i)
+    // const cityInput = getByLabelText(/city/i)
+    // const stateInput = getByLabelText(/state/i)
+    // const zipInput = getByLabelText(/zip/i)
+    // const checkoutButton = getByTestId(/checkout/i)
+
     // assert that all form fields are rendered
-    expect(firstNameInput).toBeInTheDocument();
-    expect(lastNameInput).toBeInTheDocument();
-    expect(addressInput).toBeInTheDocument();
-    expect(cityInput).toBeInTheDocument();
-    expect(stateInput).toBeInTheDocument();
-    expect(zipInput).toBeInTheDocument();
-    expect(checkoutButton).toBeInTheDocument();
+
+    // expect(firstNameInput).toBeInTheDocument();
+    // expect(lastNameInput).toBeInTheDocument();
+    // expect(addressInput).toBeInTheDocument();
+    // expect(cityInput).toBeInTheDocument();
+    // expect(stateInput).toBeInTheDocument();
+    // expect(zipInput).toBeInTheDocument();
+    // expect(checkoutButton).toBeInTheDocument();
+    
     // automate and checkout
-    fireEvent.change(firstNameInput, { target: { value: 'Holttasdfasd' } })
-    fireEvent.change(lastNameInput, { target: { value: 'Holttd' } })
-    fireEvent.change(addressInput, { target: { value: '23 23rd #23'} })
-    fireEvent.change(cityInput, { target: { value: 'TestCity'} })
-    fireEvent.change(stateInput, { target: { value: 'Oregon'} })
-    fireEvent.change(zipInput, { target: { value: '45681'} })
-    fireEvent.click(checkoutButton)
+    fireEvent.change(getByLabelText(/first name/i), { target: { value: 'Holttasdfasd' } })
+    fireEvent.change(getByLabelText(/last name/i), { target: { value: 'Holttd' } })
+    fireEvent.change(getByLabelText(/address/i), { target: { value: '23 23rd #23'} })
+    fireEvent.change(getByLabelText(/city/i), { target: { value: 'TestCity'} })
+    fireEvent.change(getByLabelText(/state/i), { target: { value: 'Oregon'} })
+    fireEvent.change(getByLabelText(/zip/i), { target: { value: '45681'} })
+    fireEvent.click(getByTestId(/checkout/i))
     // expect(checkoutButton)
     const successMessage = getByTestId(/successmessage/i)
     expect(successMessage).toBeInTheDocument();

@@ -30,13 +30,45 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain how to build stateful class components.
 
+  1. Declare the class, for ex: 'class App', that 'extends React.Component'
+  2. inside {} call the constructor(){} method and inside constructor's {} 
+  call super(); because we're extending a component and then implement 
+  this.state = {} inside the object of constructor() method.
+  3. then call the render(){} function
+  4. inside render()'s {} return regular JSX inside return()'s
+
 2. Describe the different phases of the component lifecycle.
+
+  Phase 1 - Mounting:
+    Before a component is mounted to the screen, you can set initial data which
+    would be set in the constructor function.
+
+  Phase 2 - Updating:
+    React renders JSX inside the render function to the DOM
+
+  Phase 3 - Unmounting:
+    As soon as a component leaves the DOM(screen) the component will unmount and acts as a 'clean up'.
 
 3. Demonstrate an understanding of class component lifecycle methods.
 
+  constructor() - Where state is set with initial data
+  render() - this renders any JSX we return inside to the DOM
+  copmonentDidMount() - Once JSX is renders we can then use CDM to retrieve data from an api or add any event listeners that would be functional of the DOM
+
 4. Define stateful logic.
 
+  Stateful logic is any logic that is built into a component, for example: a function that formats data before it's displayed, a click event or a function that sets toggle state.
+
 5. Describe how to test a React component with React Testing Library.
+
+  1. Create a seperate test file of the component you want to test
+  1.5. run npm test/ import { render, fireEvent } from the react testing library
+  2. Create a test method that takes a 'title of your test' and an anonymous function
+  3. Inside the function you want to render the component
+  4. Then query for any part of the component you want to test for example: form fields or clicking a button
+  5. Then assert that all the queries are rendered
+  6. Automate the test using fireEvent to view it pass
+  7. Purposefully break an input or event handler to see the test fails for the query you're testing.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
